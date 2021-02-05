@@ -1,42 +1,63 @@
 import 'package:flutter/material.dart';
 
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/details/details_screen.dart';
 
 class RecommendedPlants extends StatelessWidget {
-const RecommendedPlants({
-Key key,
-}) : super(key: key);
+  const RecommendedPlants({
+    Key key,
+  }) : super(key: key);
 
-@override
-Widget build(BuildContext context) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    physics: BouncingScrollPhysics(),
-    child: Row(
-      children: <Widget>[
-        RecommendedPlantCard(
-          title: "Samantha",
-          country: "Russia",
-          price: 400,
-          image: "assets/images/image_1.png",
-          press: () {},
-        ),RecommendedPlantCard(
-          title: "Samantha",
-          country: "Russia",
-          price: 260,
-          image: "assets/images/image_2.png",
-          press: () {},
-        ), RecommendedPlantCard(
-          title: "Samantha",
-          country: "Russia",
-          price: 190,
-          image: "assets/images/image_3.png",
-          press: () {},
-        ),
-      ],
-    ),
-  );
-}
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      physics: BouncingScrollPhysics(),
+      child: Row(
+        children: <Widget>[
+          RecommendedPlantCard(
+            title: "Samantha",
+            country: "Russia",
+            price: 400,
+            image: "assets/images/image_1.png",
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(),
+                  ));
+            },
+          ),
+          RecommendedPlantCard(
+            title: "Samantha",
+            country: "Russia",
+            price: 260,
+            image: "assets/images/image_2.png",
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(),
+                  ));
+            },
+          ),
+          RecommendedPlantCard(
+            title: "Samantha",
+            country: "Russia",
+            price: 190,
+            image: "assets/images/image_3.png",
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(),
+                  ));
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class RecommendedPlantCard extends StatelessWidget {
@@ -86,15 +107,15 @@ class RecommendedPlantCard extends StatelessWidget {
                   children: <Widget>[
                     RichText(
                         text: TextSpan(children: [
-                          TextSpan(
-                            text: "$title\n".toUpperCase(),
-                            style: Theme.of(context).textTheme.button,
-                          ),
-                          TextSpan(
-                              text: country.toUpperCase(),
-                              style:
+                      TextSpan(
+                        text: "$title\n".toUpperCase(),
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                      TextSpan(
+                          text: country.toUpperCase(),
+                          style:
                               TextStyle(color: kPrimaryColor.withOpacity(0.5)))
-                        ])),
+                    ])),
                     Spacer(),
                     Text(
                       "$price€",

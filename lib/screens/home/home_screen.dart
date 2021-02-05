@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/components/body.dart';
+import 'package:plant_app/constants.dart';
+import 'package:plant_app/components/app_bottom_navbar.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -8,6 +10,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Body(),
+      bottomNavigationBar: AppBottomNavBar(),
     );
   }
 
@@ -15,9 +18,8 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       elevation: 0,
       leading: IconButton(
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-          onPressed: () {}
-          ),
+          icon: SvgPicture.asset("assets/icons/menu.svg"), onPressed: () {}),
     );
   }
 }
+
